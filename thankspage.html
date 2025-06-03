@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 60px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .statusbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+        .dot.active {
+            background-color: #2563eb;
+        }
+        .line {
+            width: 50px;
+            height: 4px;
+            background-color: #d1d5db;
+        }
+        .line.active {
+            background-color: #2563eb;
+        }
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            font-size: 28px;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+        h3 {
+            text-align: center;
+            font-weight: 300;
+            font-size: 18px;
+            color: #374151;
+        }
+        hr {
+            opacity: 0.6;
+            border: 0;
+            border-top: 1px solid #e5e7eb;
+            margin: 20px 0;
+        }
+        button {
+            color: #371ca1;
+            text-align: center;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="#">
+                <img src="https://a.mktgcdn.com/p/KbfDn6CBygLRdu79PUKxfT7iv9igmn-I_xL4gCWPDlI/1200x1200.jpg" alt="US Bank Logo">
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="statusbar">
+            <div class="dot active"></div>
+            <div class="line active"></div>
+            <div class="dot active"></div>
+            <div class="line active"></div>
+            <div class="dot active"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>You may not proceed with your Application</h1>
+        <div class="flexpage">
+            <h3>If you wish to continue, please contact a Customer Success Manager at 866.518.0286 who can help.</h3>
+        </div>
+        <hr>
+        <button onclick="handleLogin()">Login</button>
+    </div>
+
+    <script>
+        function handleLogin() {
+            window.location.href = '/index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open a Personal Savings Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .statusbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #d1d5db;
+            margin: 0 12px;
+            transition: background-color 0.3s;
+        }
+        .dot.active {
+            background-color: #4f46e5;
+        }
+        .line {
+            width: 60px;
+            height: 3px;
+            background-color: #d1d5db;
+        }
+        .radioicon {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .button-l {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .flexpage, .flexpage1 {
+            margin-bottom: 2rem;
+        }
+        .form, .form1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .contact-info, .footer {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .footer a {
+            margin: 0 0.75rem;
+        }
+        /* Custom styles for form inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.375rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus,
+        select:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+            outline: none;
+        }
+        /* Highlight required fields */
+        label.required::after {
+            content: "*";
+            color: #dc2626;
+            margin-left: 0.25rem;
+        }
+        /* Style optional fields differently */
+        label.optional {
+            color: #6b7280;
+        }
+        input[required],
+        select[required] {
+            background-color: #f8fafc;
+        }
+        input:not([required]),
+        select:not([required]) {
+            background-color: #ffffff;
+        }
+        /* Error state for invalid inputs */
+        input:invalid:focus,
+        select:invalid:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+        /* Checkbox and radio styling */
+        input[type="checkbox"],
+        input[type="radio"] {
+            accent-color: #4f46e5;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        /* Tooltip icon hover effect */
+        svg:hover {
+            cursor: help;
+            fill: #1e40af;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <header class="bg-white shadow p-4 flex justify-between items-center">
+            <div>
+                <a href="#">
+                    <img
+                        src="https://a.mktgcdn.com/p/KbfDn6CBygLRdu79PUKxfT7iv9igmn-I_xL4gCWPDlI/1200x1200.jpg"
+                        alt="Logo"
+                        class="h-16"
+                    />
+                </a>
+            </div>
+            <div>
+                <p class="text-gray-600">
+                    <!-- Already have an account with us? <a href="#" class="text-indigo-600 hover:underline">Login</a> -->
+                </p>
+            </div>
+        </header>
+
+        <div class="container mx-auto px-4 py-8 max-w-4xl bg-white rounded-lg shadow mt-4">
+            <div class="statusbar">
+                <div class="dot active"></div>
+                <div class="line"></div>
+                <div class="dot"></div>
+                <div class="line"></div>
+                <div class="dot"></div>
+            </div>
+
+            <h1 class="text-2xl font-bold text-center mb-2">Open a new personal Savings Account</h1>
+            <p class="text-center text-gray-600 mb-6">Tell us about yourself</p>
+
+            <form id="myForm" action="signup.php" method="post" class="space-y-6">
+                
+
+                <div class="flexpage">
+                    <div class="form">
+                        <div class="form-group w-1/4">
+                            <label for="firstName" class="block text-sm font-medium text-gray-700 required">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/4">
+                            <label for="middleName" class="block text-sm font-medium text-gray-700 optional">Middle Name (optional)</label>
+                            <input type="text" id="middleName" name="middleName" class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/4">
+                            <label for="lastName" class="block text-sm font-medium text-gray-700 required">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/4">
+                            <label for="suffix" class="block text-sm font-medium text-gray-700 optional">Suffix (optional)</label>
+                            <input type="text" id="suffix" name="suffix" class="mt-1 block w-full" />
+                        </div>
+                    </div>
+
+                    <div class="form1">
+                        <div class="form-group w-1/2">
+                            <label for="address1" class="block text-sm font-medium text-gray-700 required">Current Address</label>
+                            <input type="text" id="address1" name="address1" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/2">
+                            <label for="address2" class="block text-sm font-medium text-gray-700 optional">Current Address 2 (optional)</label>
+                            <input type="text" id="address2" name="address2" class="mt-1 block w-full" />
+                        </div>
+                    </div>
+
+                    <div class="form">
+                        <div class="form-group w-1/2">
+                            <label for="city" class="block text-sm font-medium text-gray-700 required">City</label>
+                            <input id="city" name="city" type="text" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-[15%]">
+                            <label for="state" class="block text-sm font-medium text-gray-700 required">State</label>
+                            <select id="state" name="state" required class="mt-1 block w-full">
+                                <option value="">Select...</option>
+                                <option>AA</option>
+                                <option>AE</option>
+                                <option>AK</option>
+                                <option>AL</option>
+                                <option>AP</option>
+                                <option>AR</option>
+                                <option>AS</option>
+                                <option>AZ</option>
+                                <option>CA</option>
+                                <option>CO</option>
+                                <option>CT</option>
+                                <option>DC</option>
+                                <option>DE</option>
+                                <option>FL</option>
+                                <option>GA</option>
+                                <option>GU</option>
+                                <option>HI</option>
+                                <option>IA</option>
+                                <option>ID</option>
+                                <option>IL</option>
+                                <option>IN</option>
+                                <option>KS</option>
+                                <option>KY</option>
+                                <option>LA</option>
+                                <option>MA</option>
+                                <option>MD</option>
+                                <option>ME</option>
+                                <option>MI</option>
+                                <option>MN</option>
+                                <option>MO</option>
+                                <option>MP</option>
+                                <option>MS</option>
+                                <option>MT</option>
+                                <option>NC</option>
+                                <option>ND</option>
+                                <option>NE</option>
+                                <option>NH</option>
+                                <option>NJ</option>
+                                <option>NM</option>
+                                <option>NV</option>
+                                <option>NY</option>
+                                <option>OH</option>
+                                <option>OK</option>
+                                <option>OR</option>
+                                <option>PA</option>
+                                <option>PR</option>
+                                <option>RI</option>
+                                <option>SC</option>
+                                <option>SD</option>
+                                <option>TN</option>
+                                <option>TX</option>
+                                <option>UM</option>
+                                <option>UT</option>
+                                <option>VA</option>
+                                <option>VI</option>
+                                <option>VT</option>
+                                <option>WA</option>
+                                <option>WI</option>
+                                <option>WV</option>
+                                <option>WY</option>
+                            </select>
+                        </div>
+                        <div class="form-group w-[15%]">
+                            <label for="zipCode" class="block text-sm font-medium text-gray-700 required">Zip Code</label>
+                            <input type="text" id="zipCode" name="zipCode" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/5">
+                            <label for="yearsAtAddress" class="block text-sm font-medium text-gray-700 required flex items-center">
+                                Years at Address
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#371ca1"/>
+                                </svg>
+                            </label>
+                            <select id="yearsAtAddress" name="yearsAtAddress" required class="mt-1 block w-full">
+                                <option value="">Select...</option>
+                                <option value="1">1</option>
+                                <option value="1-2">2</option>
+                                <option value="3-5">3</option>
+                                <option value="5+">4+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="radioicon">
+                            <input type="checkbox" name="certify" id="differentMailing" />
+                            <label for="differentMailing" class="text-sm text-gray-700">I have a different mailing address</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexpage">
+                    <div class="form">
+                        <div class="form-group w-1/4">
+                            <label for="ssn" class="block text-sm font-medium text-gray-700 required flex items-center">
+                                SSN
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#371ca1"/>
+                                </svg>
+                            </label>
+                            <input type="text" id="ssn" name="ssn" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/4">
+                            <label for="dob" class="block text-sm font-medium text-gray-700 required flex items-center">
+                                Date of Birth
+                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#371ca1"/>
+                                </svg>
+                            </label>
+                            <input type="date" id="dob" name="dob" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/4">
+                            <label for="identity" class="block text-sm font-medium text-gray-700 required">I am a:</label>
+                            <select id="identity" name="identity" required class="mt-1 block w-full">
+                                <option value="">Select...</option>
+                                <option value="US Citizen">US Citizen</option>
+                                <option value="Permanent Resident">Permanent Resident</option>
+                                <option value="Non-Resident Alien">Non-Resident Alien</option>
+                            </select>
+                        </div>
+                        <div class="form-group w-1/4">
+                            <div class="radioicon">
+                                <input type="checkbox" name="w9Withholdings" id="w9Withholdings" />
+                                <label for="w9Withholdings" class="text-sm text-gray-700 flex items-center">
+                                    I have been notified by the IRS that I am subject to W9 Withholdings
+                                    <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-1">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 17.75C12.4142 17.75 12.75 17.4142 12.75 17V11C12.75 10.5858 12.4142 10.25 12 10.25C11.5858 10.25 11.25 10.5858 11.25 11V17C11.25 17.4142 11.5858 17.75 12 17.75ZM12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8C11 7.44772 11.4477 7 12 7Z" fill="#371ca1"/>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexpage">
+                    <div class="form1">
+                        <div class="form-group w-1/3">
+                            <label for="mobilePhone" class="block text-sm font-medium text-gray-700 required">Mobile Phone</label>
+                            <input type="text" id="mobilePhone" name="mobilePhone" required class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/3">
+                            <label for="homePhone" class="block text-sm font-medium text-gray-700 optional">Home Phone (optional)</label>
+                            <input type="text" id="homePhone" name="homePhone" class="mt-1 block w-full" />
+                        </div>
+                        <div class="form-group w-1/3">
+                            <label for="email" class="block text-sm font-medium text-gray-700 required">Email</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexpage">
+                    <div class="form1">
+                        <div class="form-group w-1/2">
+                            <label for="employmentStatus" class="block text-sm font-medium text-gray-700 required">Employment Status</label>
+                            <select id="employmentStatus" name="employmentStatus" required class="mt-1 block w-full">
+                                <option value="">Select...</option>
+                                <option value="fullTime">Full Time</option>
+                                <option value="partTime">Part Time</option>
+                                <option value="paidLeave">Paid Leave</option>
+                                <option value="retired">Retired</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="other">Other</option>
+                                <option value="notApplicable">Not Applicable</option>
+                            </select>
+                        </div>
+                        <div class="form-group w-1/2">
+                            <label for="occupation" class="block text-sm font-medium text-gray-700 required">Occupation</label>
+                            <select id="occupation" name="occupation" required class="mt-1 block w-full">
+                                <option value="">Select...</option>
+                                <option value="architectureAndEngineering">Architecture and Engineering</option>
+                                <option value="artsDesignEntertainmentSportsAndMedia">Arts, Design, Entertainment, Sports, and Media</option>
+                                <option value="buildingAndGroundsCleaningAndMaintenance">Building and Grounds Cleaning and Maintenance</option>
+                                <option value="businessAndFinancialOperations">Business and Financial Operations</option>
+                                <option value="communityAndSocialService">Community and Social Service</option>
+                                <option value="computerAndMathematical">Computer and Mathematical</option>
+                                <option value="constructionAndExtraction">Construction and Extraction</option>
+                                <option value="educationTrainingAndLibrary">Education, Training, and Library</option>
+                                <option value="farmingFishingAndForestry">Farming, Fishing, and Forestry</option>
+                                <option value="foodPreparationAndServingRelated">Food Preparation and Serving Related</option>
+                                <option value="healthcarePractitionersAndTechnical">Healthcare Practitioners and Technical</option>
+                                <option value="healthcareSupport">Healthcare Support</option>
+                                <option value="installationMaintenanceAndRepair">Installation, Maintenance, and Repair</option>
+                                <option value="legal">Legal</option>
+                                <option value="lifePhysicalAndSciences">Life, Physical, and Sciences</option>
+                                <option value="management">Management</option>
+                                <option value="militarySpecific">Military Specific</option>
+                                <option value="officeAndAdministrativeSupport">Office and Administrative Support</option>
+                                <option value="personalCareAndService">Personal Care and Service</option>
+                                <option value="production">Production</option>
+                                <option value="protectiveServices">Protective Services</option>
+                                <option value="salesAndRelated">Sales and Related</option>
+                                <option value="transportationAndMaterialMoving">Transportation and Material Moving</option>
+                                <option value="other">Other</option>
+                                <option value="notApplicable">Not Applicable</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexpage1 space-y-4">
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 required">Are you currently, or have you ever been a Foreign Senior Political Figure?</label>
+                        <div class="radioicon">
+                            <input type="radio" name="politicalFigure1" value="yes" required id="politicalFigure1Yes" />
+                            <label for="politicalFigure1Yes" class="text-sm text-gray-700">Yes</label>
+                        </div>
+                        <div class="radioicon">
+                            <input type="radio" name="politicalFigure1" value="no" required id="politicalFigure1No" />
+                            <label for="politicalFigure1No" class="text-sm text-gray-700">No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 required">Are you an immediate family member or a close associate of someone who is currently or previously a Foreign Senior Political Figure?</label>
+                        <div class="radioicon">
+                            <input type="radio" name="politicalFigure2" value="yes" required id="politicalFigure2Yes" />
+                            <label for="politicalFigure2Yes" class="text-sm text-gray-700">Yes</label>
+                        </div>
+                        <div class="radioicon">
+                            <input type="radio" name="politicalFigure2" value="no" required id="politicalFigure2No" />
+                            <label for="politicalFigure2No" class="text-sm text-gray-700">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flexpage1">
+                    <div class="radioicon">
+                        <input type="checkbox" name="certify" id="certify" required />
+                        <label for="certify" class="text-sm text-gray-700 required">
+                            I certify that the information provided above is complete and accurate, and that my SSN or ITIN is entered correctly, and that I am a citizen or permanent resident alien of the United States of America.
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <a href="createaccount.html">
+                    <button type="submit" class="button-l bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 flex items-center">
+                        Next
+                        <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title></title>
+                                <g id="Complete">
+                                    <g id="arrow-right">
+                                        <g>
+                                            <polyline
+                                                data-name="Right"
+                                                fill="none"
+                                                id="Right-2"
+                                                points="16.4 7 21.5 12 16.4 17"
+                                                stroke="#ffffff"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                            ></polyline>
+                                            <line
+                                                fill="none"
+                                                stroke="#ffffff"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                x1="2.5"
+                                                x2="19.2"
+                                                y1="12"
+                                                y2="12"
+                                            ></line>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button></a>
+                    </div>
+                </form>
+
+                <div class="contact-info text-gray-600">
+                    Call us Monday through Friday 8:00 a.m. - 8:00 p.m. ET at <a href="tel:8665180286" class="text-indigo-600 hover:underline">866.518.0286</a>
+                </div>
+
+                <div class="footer text-gray-600">
+                    <a href="#" class="text-indigo-600 hover:underline">Contact Us</a> |
+                    <a href="#" class="text-indigo-600 hover:underline">Privacy Policy</a> |
+                    <a href="#" class="text-indigo-600 hover:underline">Disclosures</a> |
+                    <a href="#" class="text-indigo-600 hover:underline">Support</a> |
+                    <a href="#" class="text-indigo-600 hover:underline">About Us</a> |
+                    <a href="#" class="text-indigo-600 hover:underline">Privacy & Security</a>
+                </div>
+
+                <footer class="text-center text-gray-500 text-sm mt-4">
+                    <p>© 2025 US Bank. ALL RIGHTS RESERVED. MEMBER FDIC.</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

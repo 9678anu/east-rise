@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .account-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .page-bx {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo {
+            height: 60px;
+        }
+        .logout-btn {
+            background-color: #dc2626;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .logout-btn:hover {
+            background-color: #b91c1c;
+        }
+        .welcome h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        .detailarea {
+            display: flex;
+            justify-content: center;
+        }
+        .detailbx {
+            text-align: center;
+        }
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+        .user-details-box .detailbx {
+            text-align: left;
+        }
+        .user-details-box p {
+            margin: 8px 0;
+            font-size: 16px;
+            color: #374151;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #e5e7eb;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="account-container">
+        <!-- Header Section -->
+        <div class="page-bx">
+            <div class="top-header">
+                <img src="https://a.mktgcdn.com/p/KbfDn6CBygLRdu79PUKxfT7iv9igmn-I_xL4gCWPDlI/1200x1200.jpg" alt="EastRise Credit Union logo" class="logo">
+                <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+            </div>
+            <div class="welcome">
+                <h2>Hi, User</h2>
+            </div>
+        </div>
+
+        <!-- Balance Section -->
+        <div class="page-bx">
+            <h3 class="text-xl font-semibold text-gray-800">Available Balance</h3>
+            <hr>
+            <div class="detailarea">
+                <div class="detailbx">
+                    <span class="price">$1,234.56</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Details Section -->
+        <div class="page-bx user-details-box">
+            <h3 class="text-xl font-semibold text-gray-800">Account Details</h3>
+            <hr>
+            <div class="detailbx">
+                <p><strong>Username:</strong> user123</p>
+                <p><strong>Email:</strong> user@example.com</p>
+                <p><strong>Account Number:</strong> 1547XXXXXXXX</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
