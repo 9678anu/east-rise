@@ -372,56 +372,6 @@
     <img src="https://ik.imagekit.io/vj1zr14uts/www.eastrise.com_open-account_%20(1).png?updatedAt=1748952842841" alt="Footer" class="login-body-img">
   </main>
 
-  <script>
-    // Password toggle functionality
-    const passwordInput = document.getElementById('password');
-    const passwordToggle = document.getElementById('password-toggle');
-    const eyeIcon = document.getElementById('eye-icon');
-
-    passwordToggle.addEventListener('click', () => {
-      const isPassword = passwordInput.type === 'password';
-      passwordInput.type = isPassword ? 'text' : 'password';
-      eyeIcon.innerHTML = isPassword
-        ? '<path d="M17 10h-1.7a6 6 0 0 0-10.6 0H3a9 9 0 0 1 18 0z"></path>'
-        : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
-    });
-
-    // Remember username toggle functionality
-    const rememberToggle = document.getElementById('remember-toggle');
-    let isRemembered = false;
-
-    rememberToggle.addEventListener('click', () => {
-      isRemembered = !isRemembered;
-      rememberToggle.classList.toggle('active', isRemembered);
-      if (isRemembered) {
-        localStorage.setItem('username', document.getElementById('username').value);
-      } else {
-        localStorage.removeItem('username');
-      }
-    });
-
-    // Load remembered username
-    window.addEventListener('load', () => {
-      const savedUsername = localStorage.getItem('username');
-      if (savedUsername) {
-        document.getElementById('username').value = savedUsername;
-        rememberToggle.classList.add('active');
-        isRemembered = true;
-      }
-    });
-
-    // Form submission handling
-    document.getElementById('login-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      console.log('Username:', username);
-      console.log('Password:', password);
-      if (isRemembered) {
-        localStorage.setItem('username', username);
-      }
-      alert('Form submitted! Check the console for form data.');
-    });
-  </script>
+  
 </body>
 </html>
